@@ -17,7 +17,7 @@ html {
 
 * {
     color: var(--foreground);
-    font-family: "Roboto", "Helvetica Neue", sans-serif;
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
     box-sizing: border-box;
     flex-shrink: 0;
