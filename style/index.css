@@ -27,14 +27,17 @@ html {
 
     -webkit-tap-highlight-color: transparent;
     background-color: transparent;
-    scrollbar-width: 0;
     user-select: none;
     overflow: hidden;
     outline: none;
     border: none;
 }
 
-::-webkit-scrollbar {
+:not(.scroll) {
+    scrollbar-width: 0;
+}
+
+:not(.scroll)::-webkit-scrollbar {
     display: none;
 }
 
@@ -67,7 +70,6 @@ body div > span,
 body div > label {
     width: 100%;
     display: block;
-    white-space: pre-wrap;
 }
 
 
@@ -79,6 +81,10 @@ body div > label {
 body * {
     font-size: 1.6rem;
     line-height: 2.0rem;
+}
+
+body .hidden {
+    visibility: hidden;
 }
 
 body .small {
@@ -107,6 +113,10 @@ body .white {
     color: white;
 }
 
+body .float {
+    float: right;
+}
+
 body .right {
     text-align: right;
 }
@@ -127,6 +137,14 @@ body .bot-2 {
     padding-bottom: 2rem;
 }
 
+body .top-4 {
+    padding-top: 4rem;
+}
+
+body .bot-4 {
+    padding-bottom: 4rem;
+}
+
 
 
 /**/
@@ -137,16 +155,37 @@ body input[type=checkbox] {
     display: none;
 }
 
-body input[type=checkbox] ~ label {
+body input[type=checkbox] + label {
     transition-property: opacity;
     transition-duration: 0.1s;
+    display: block;
 }
 
-body input[type=checkbox]:not(:checked) ~ label {
+body input[type=checkbox]:not(:checked) + label {
     opacity: 0.6;
 }
 
-body input[type=checkbox]:not(:checked) ~ .toggle {
+body input[type=checkbox]:not(:checked) + label + .toggle {
     display: none;
 }
 
+
+
+/**/
+
+
+
+body .gallery {
+    display: flex;
+    overflow-x: scroll;
+    scrollbar-width: 0;
+}
+
+body .gallery a {
+    display: flex;
+    margin-left: 1rem;
+}
+
+body .gallery img {
+    width: min(400px, calc(100vw - 8rem));
+}
